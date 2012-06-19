@@ -72,7 +72,7 @@ lapply(c("ggplot2", "psych", "RCurl", "irr", "car","Hmisc", "gmodels","qpcR"), l
 
 
 #if you are using a file that is local to your computer, then replace path below by path to the data file. command will throw all the data into the templateData object
-game_time_data <- read.csv("/Users/Gui/Google Drive/GameTimePerception/demographics_table.csv")
+game_time_data <- read.csv("/Users/pc/Google Drive/GameTimePerception/demographics_table1.csv")
 
 
 #below will view data in a spreadsheet format. notice that in this all subsequent commands you have to replace templateData with whatever name you chose for your data object in the previous command
@@ -88,6 +88,7 @@ attach(game_time_data)
 
 #function below is used to recode variables. things to notice: replace old.var with the variable you are recoding, replace new.var with the variable you want to create. the whole recoding happens within " ". all character and factor variables will be within '', numbers will be displayed with digits (not inside '') or NA (also without '')
 new.var  <- car::recode(old.var, " c(1,2) = 'A'; else = 'B' ")
+game_time_data<- transform(game_time_data, group = factor(group, label = c("occasional", "chronic"), levels = 1:2)
 
 ###########################################################################################
 #TABLE 1: DEMOGRAPHICS
@@ -95,7 +96,7 @@ new.var  <- car::recode(old.var, " c(1,2) = 'A'; else = 'B' ")
 #describes your entire dataset
 describe(game_time_data)
 
-summary(variable)
+summary(game_time_data)
 qplot(variable)
 
 #t.test, where outcome is a continuous variable and predictor is a dichotomous variable
