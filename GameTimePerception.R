@@ -17,14 +17,62 @@ detach()
 #command below will install all packages and is only run once. remove the #if this is the first time you are running the code on RStudio, and then you can add the hash tag again
 #lapply(c("ggplot2", "psych", "RCurl", "irr", "car","Hmisc", "gmodels", "DAAG"), install.packages, character.only=T)
 
+
+#####################################################################################
+#TEST PACKAGES
+#####################################################################################
+
+if ("psych" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("psych", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("ggplot2" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("ggplot2", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("RCurl" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("RCurl", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("irr" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("irr", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("car" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("car", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("Hmisc" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("Hmisc", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("gmodels" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("gmodels", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+if ("qpcR" %in% rownames(installed.packages()) == 1){
+  cat("Pacote Instalado");
+}else {
+  install.packages("qpcR", repos = "http://cran-r.c3sl.ufpr.br", dep = TRUE)
+}
+
+#Apply packages
 lapply(c("ggplot2", "psych", "RCurl", "irr", "car","Hmisc", "gmodels","qpcR"), library, character.only=T)
 
 #####################################################################################
 #IMPORTING DATA
 #####################################################################################
 
+
 #if you are using a file that is local to your computer, then replace path below by path to the data file. command will throw all the data into the templateData object
-game_time_data <- read.csv("/Users/rpietro/Google Drive/R/nonpublicdata_publications/GameTimePerception/gameTimePerception.csv")
+game_time_data <- read.csv("/Users/Gui/Google Drive/GameTimePerception/demographics_table.csv")
 
 
 #below will view data in a spreadsheet format. notice that in this all subsequent commands you have to replace templateData with whatever name you chose for your data object in the previous command
@@ -45,7 +93,7 @@ new.var  <- car::recode(old.var, " c(1,2) = 'A'; else = 'B' ")
 #TABLE 1: DEMOGRAPHICS
 ###########################################################################################
 #describes your entire dataset
-describe(templateData)
+describe(game_time_data)
 
 summary(variable)
 qplot(variable)
