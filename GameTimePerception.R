@@ -5,6 +5,8 @@
 
 #link to manuscript
 
+## TEST - THIAGO RULES!!!!!!
+
 #####################################################################################
 #SETTING ENVIRONMENT
 #####################################################################################
@@ -97,7 +99,7 @@ game_time_data<- transform(game_time_data, group = factor(group, label = c("occa
 describe(game_time_data)
 
 summary(game_time_data)
-qplot(variable)
+qplot(age,group, geom="line")
 
 #t.test, where outcome is a continuous variable and predictor is a dichotomous variable
 t.test(outcome~predictor)
