@@ -73,8 +73,10 @@ lapply(c("ggplot2", "psych", "RCurl", "irr", "car","Hmisc", "gmodels","qpcR"), l
 #####################################################################################
 
 
-#if you are using a file that is local to your computer, then replace path below by path to the data file. command will throw all the data into the templateData object
-game_time_data <- read.csv("/Users/pc/Google Drive/GameTimePerception/demographics_table1.csv")
+#to load csv table you need this path on google drive /Google Drive/GameTimePerception/demographics_table.csv
+path_csv <- paste("/Users/",Sys.getenv(c("USERNAME")),"/Google Drive/GameTimePerception/demographics_table.csv" , sep = "")
+game_time_data <- read.csv(path_cvs)
+
 
 
 #below will view data in a spreadsheet format. notice that in this all subsequent commands you have to replace templateData with whatever name you chose for your data object in the previous command
